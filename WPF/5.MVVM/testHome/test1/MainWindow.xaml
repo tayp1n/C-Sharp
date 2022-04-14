@@ -1,0 +1,52 @@
+﻿<Window x:Class="Test.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Test"
+        xmlns:vm="clr-namespace:Test.ViewModel"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <d:Window.DataContext>
+        <vm:EditWorkersVM/>
+    </d:Window.DataContext>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+        <ListView ItemsSource="{Binding People}" SelectedItem="{Binding SelectedPerson}">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn DisplayMemberBinding="{Binding FirstName}" Header="Имя"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Surname}" Header="Фамилия"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Position}" Header="Должность"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <ListBox Grid.Column="1" ItemsSource="{Binding PersonTypes}" SelectedItem="{Binding SelectedPersonType}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Tag, Converter={StaticResource NamesTypes}, RelativeSource={RelativeSource Self}}"
+                                   Tag="{Binding Converter={StaticResource GetTypeConverter}, Mode=OneWay}" />
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button Content="Подробности" HorizontalAlignment="Center" Margin="5" Padding="20,5"
+                    Command="{Binding FullViewPersonCommand, Mode=OneWay}"/>
+            <Button Grid.Column="1" Content="Редактировать выбранного" HorizontalAlignment="Center" Margin="5" Padding="20,5"
+                    Command="{Binding EditPersonCommand, Mode=OneWay}"/>
+        </Grid>
+        <Button Grid.Row="1" Grid.Column="1" Content="Добавить нового" HorizontalAlignment="Center" Margin="5" Padding="20,5"
+                    Command="{Binding AddPersonCommand, Mode=OneWay}"/>
+    </Grid>
+</Window>

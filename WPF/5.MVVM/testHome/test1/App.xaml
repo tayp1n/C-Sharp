@@ -1,0 +1,25 @@
+﻿<Application x:Class="Test.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:Test"
+             xmlns:comm="clr-namespace:Common"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             xmlns:wrk="clr-namespace:Test.ClassesForVM.Workers"
+             StartupUri="MainWindow.xaml"
+             >
+    <Application.Resources>
+        <comm:TypeToVisibilityConverter x:Key="TypeToVisibilityConverter"/>
+        <comm:DictionaryKeyToValueConverter x:Key="NamesTypes">
+            <sys:String x:Key="{x:Type wrk:Intern}">Интерн</sys:String>
+            <sys:String x:Key="{x:Type wrk:Worker}">Работник</sys:String>
+            <sys:String x:Key="{x:Type wrk:DepartmentHead}">Начальник Отдела</sys:String>
+            <sys:String x:Key="{x:Type wrk:LowDirector}">Руководитель Департамента</sys:String>
+            <sys:String x:Key="{x:Type wrk:MidDirector}">Руководитель Сети Департаментов</sys:String>
+            <sys:String x:Key="{x:Type wrk:TopDirector}">Директор</sys:String>
+        </comm:DictionaryKeyToValueConverter>
+        <comm:GetTypeConverter x:Key="GetTypeConverter"/>
+        <comm:DebugConvereter x:Key="DebugConvereter"/>
+        <comm:BooleanNotConverter x:Key="BooleanNotConverter"/>
+        <comm:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+    </Application.Resources>
+</Application>

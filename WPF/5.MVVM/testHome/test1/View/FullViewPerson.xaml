@@ -1,0 +1,138 @@
+﻿<Window x:Class="Test.View.FullViewPerson"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Test.View"
+        xmlns:wrk="clr-namespace:Test.ClassesForVM.Workers"
+        xmlns:vm="clr-namespace:Test.ViewModel"
+        xmlns:Common="clr-namespace:Common" x:Name="window"
+        mc:Ignorable="d" d:DataContext="{x:Type vm:EditWorkersVM}"
+        Height="450" Width="454">
+    <Window.Visibility>
+        <Binding Converter="{StaticResource BooleanToVisibilityConverter}" Mode="OneWay" Path="IsFullViewPerson"/>
+    </Window.Visibility>
+    <Window.Style>
+        <Style TargetType="{x:Type Window}">
+            <Setter Property="Title" Value="Полная информация по работнику"/>
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding IsEditPerson}" Value="True">
+                    <Setter Property="Title" Value="Редактирование данных работника"/>
+                </DataTrigger>
+                <DataTrigger Binding="{Binding IsAddPerson}" Value="True">
+                    <Setter Property="Title" Value="Добавление нового работника"/>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Style>
+    <Grid >
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <!--Кнопки-->
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button IsDefault="True" Margin="10" HorizontalAlignment="Center" Padding="20,5"
+                    Click="ButtonSave_Click"
+                    Visibility="{Binding IsEditPerson, Converter={StaticResource BooleanToVisibilityConverter}, Mode=OneWay}"
+                    Command="{Binding SaveEditPersonCommand, Mode=OneWay}">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Content" Value="Сохранить"/>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding IsAddPerson}" Value="True">
+                                <Setter Property="Content" Value="Добавить"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
+            <Button Grid.Column="1" Content="Отмена" IsCancel="True" Margin="10" HorizontalAlignment="Center" Padding="20,5"
+                    Click="ButtonCancel_Click"/>
+        </Grid>
+
+        <Grid DockPanel.Dock="Top" VerticalAlignment="Top"
+              DataContext="{Binding EditPerson, Mode=OneWay}">
+            <Grid.Resources>
+                <Style TargetType="{x:Type TextBlock}">
+                    <Setter Property="VerticalAlignment" Value="Center"/>
+                    <Setter Property="Margin" Value="30,0"/>
+                    <Setter Property="FontSize" Value="14"/>
+                </Style>
+                <Style TargetType="{x:Type TextBox}">
+                    <Setter Property="HorizontalAlignment" Value="Left"/>
+                    <Setter Property="VerticalAlignment" Value="Center"/>
+                    <Setter Property="Margin" Value="10"/>
+                    <Setter Property="Padding" Value="5,0"/>
+                    <Setter Property="MinWidth" Value="200"/>
+                    <Setter Property="IsReadOnly" Value="{Binding DataContext.IsEditPerson, Converter={StaticResource BooleanNotConverter}, ElementName=window}"/>
+                </Style>
+
+            </Grid.Resources>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <TextBlock Text="Статус" Grid.Row="0"/>
+            <TextBlock Text="Имя" Grid.Row="1"/>
+            <TextBlock Text="Фамилия" Grid.Row="2"/>
+            <TextBlock Text="Дата рождения" Grid.Row="3"/>
+            <TextBlock Text="Возраст" Grid.Row="4"/>
+            <TextBlock Text="Адрес проживания" Grid.Row="5"/>
+            <TextBlock Text="Должность" Grid.Row="6"/>
+            <TextBlock Text="Зарплата" Grid.Row="7"
+                       d:DataContext="{x:Type wrk:BaseSubordinates}"
+                       Visibility="{Binding ConverterParameter={x:Type wrk:BaseSubordinates}, Converter={StaticResource TypeToVisibilityConverter}, Mode=OneWay}"/>
+            <TextBlock Text="Отработано часов" Grid.Row="8"
+                       d:DataContext="{x:Type wrk:Worker}"
+                       Visibility="{Binding ConverterParameter={x:Type wrk:Worker}, Converter={StaticResource TypeToVisibilityConverter}, Mode=OneWay}"/>
+            <TextBlock Text="Min зарплата" Grid.Row="9"
+                     d:DataContext="{x:Type wrk:BaseDirector}"
+                     Visibility="{Binding ConverterParameter={x:Type wrk:BaseDirector}, Converter={StaticResource TypeToVisibilityConverter}, Mode=OneWay}"/>
+            <TextBlock Text="Коэфициент ЗП" Grid.Row="10"
+                     d:DataContext="{x:Type wrk:BaseDirector}"
+                     Visibility="{Binding ConverterParameter={x:Type wrk:BaseDirector}, Converter={StaticResource TypeToVisibilityConverter}, Mode=OneWay}"/>
+
+            <TextBox Text="{Binding Tag, Converter={StaticResource NamesTypes}, RelativeSource={RelativeSource Self}}"
+                     Grid.Row="0" Grid.Column="1" IsReadOnly="True"
+                     Tag="{Binding Converter={StaticResource GetTypeConverter}, Mode=OneWay}"/>
+            <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding FirstName}"/>
+            <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding Surname}"/>
+            <DatePicker Grid.Row="3" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center"
+                    Margin="10,5" MinWidth="200" SelectedDate="{Binding Birthday}"/>
+            <TextBox Grid.Row="4" Grid.Column="1" IsReadOnly="True" Text="{Binding Age, Mode=OneWay}"/>
+            <TextBox Grid.Row="5" Grid.Column="1" Text="{Binding Address}"/>
+            <TextBox Grid.Row="6" Grid.Column="1" Text="{Binding Position}"/>
+            <TextBox Grid.Row="7" Grid.Column="1" Text="{Binding Salary}"
+                     d:DataContext="{x:Type wrk:BaseSubordinates}"
+                     Visibility="{Binding ConverterParameter={x:Type wrk:BaseSubordinates}, Converter={StaticResource TypeToVisibilityConverter}, Mode=OneWay}"/>
+            <TextBox Grid.Row="8" Grid.Column="1" Text="{Binding WorkHours}"
+                     d:DataContext="{x:Type wrk:Worker}"
+                     Visibility="{Binding ConverterParameter={x:Type wrk:Worker}, Converter={StaticResource TypeToVisibilityConverter}, Mode=OneWay}"/>
+            <TextBox Grid.Row="9" Grid.Column="1" 
+                     d:DataContext="{x:Type wrk:BaseDirector}"
+                     Visibility="{Binding ConverterParameter={x:Type wrk:BaseDirector}, Converter={StaticResource TypeToVisibilityConverter}, Mode=OneWay}"/>
+            <TextBox Grid.Row="10" Grid.Column="1"
+                     d:DataContext="{x:Type wrk:BaseDirector}"
+                     Visibility="{Binding ConverterParameter={x:Type wrk:BaseDirector}, Converter={StaticResource TypeToVisibilityConverter}, Mode=OneWay}"/>
+        </Grid>
+    </Grid>
+
+</Window>
