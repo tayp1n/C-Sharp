@@ -1,0 +1,7 @@
+И н те рф е й с INotifyPropertyChanged пространства имен
+System.ComponentModel определяет, что наследник содержит
+событие PropertyChanged, оповещающее об изменении свойства
+объекта. Изучить данный интерфейс, используя MSDN Library.
+Разработать классы: Author, Client, LibraryCard, Catalogue. Описать
+их поля, поля инкапсулировать свойствами и для классов
+реализовать интерфейс INotifyPropertyChanged
