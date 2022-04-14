@@ -1,0 +1,6 @@
+D:\MyProgramms\JetBrains\Projects\c#\Proj1\ConsoleApplication1\ConsoleApplication3\bin\Debug\ConsoleApplication3.exe
+D:\MyProgramms\JetBrains\Projects\c#\Proj1\ConsoleApplication1\ConsoleApplication3\bin\Debug\ConsoleApplication3.pdb
+D:\MyProgramms\JetBrains\Projects\c#\Proj1\ConsoleApplication1\ConsoleApplication3\obj\Debug\ConsoleApplication3.csprojAssemblyReference.cache
+D:\MyProgramms\JetBrains\Projects\c#\Proj1\ConsoleApplication1\ConsoleApplication3\obj\Debug\ConsoleApplication3.csproj.CoreCompileInputs.cache
+D:\MyProgramms\JetBrains\Projects\c#\Proj1\ConsoleApplication1\ConsoleApplication3\obj\Debug\ConsoleApplication3.exe
+D:\MyProgramms\JetBrains\Projects\c#\Proj1\ConsoleApplication1\ConsoleApplication3\obj\Debug\ConsoleApplication3.pdb

@@ -1,0 +1,30 @@
+<busses>
+  <bus-1 type="loltype" type2="soska">
+    <Color>Red</Color>
+    <Name>bmw</Name>
+    <Number>345345</Number>
+    <Seats>12</Seats>
+    <MaxSpeed>117.3</MaxSpeed>
+  </bus-1>
+  <bus-2>
+    <Color>Green</Color>
+    <Name>volvo</Name>
+    <Number>345785</Number>
+    <Seats>20</Seats>
+    <MaxSpeed>116.9</MaxSpeed>
+  </bus-2>
+  <bus-3>
+    <Color>Blue</Color>
+    <Name>mercedes</Name>
+    <Number>435345</Number>
+    <Seats>15</Seats>
+    <MaxSpeed>120.5</MaxSpeed>
+  </bus-3>
+  <bus-4>
+    <Color>Yellow</Color>
+    <Name>peugeot</Name>
+    <Number>347845</Number>
+    <Seats>17</Seats>
+    <MaxSpeed>126.1</MaxSpeed>
+  </bus-4>
+</busses>

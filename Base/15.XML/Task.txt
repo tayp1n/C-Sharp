@@ -1,0 +1,11 @@
+Используя АПИ погоды (на выбор):
+http://api.pogoda.com/index.php?api_lang=ru&localidad=13088&affiliate_id=4v7j6at7rkya - 7
+дней
+http://api.pogoda.com/index.php?api_lang=ru&localidad=13088&affiliate_id=4v7j6at7rkya&v=2 - 5
+дней раз в 3 часа
+http://api.pogoda.com/index.php?api_lang=ru&localidad=13088&affiliate_id=4v7j6at7rkya&v=2&h=1
+- на каждый час
+Реализовать приложение, которое отображает прогноз погоды для города Киева
+на текущий момент, на завтра и послезавтра.
+Отображать информацию о температуре воздуха, скорости ветра и облачности.
+При каждом запуске приложения, в отдельный XML файл сохранять текущую информацию о погоде. 
