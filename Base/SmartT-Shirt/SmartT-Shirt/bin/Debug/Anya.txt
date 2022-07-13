@@ -1,0 +1,13 @@
+Name: Anya, Age: 19, Phone model: Test 2
+23
+0
+117
+16,2030945791412
+-23
+
+Number of steps: 43, Calories Burned: 0, Pulse: 131, Respiratory Rate: 17,1204254554214, Destination: -43, Exercise Recommendations: , 
+Number of steps: 41, Calories Burned: 0, Pulse: 146, Respiratory Rate: 13,323206150822, Destination: -41, Exercise Recommendations: , 
+Number of steps: 33, Calories Burned: 0, Pulse: 117, Respiratory Rate: 19,9788673169347, Destination: -33, Exercise Recommendations: , 
+Number of steps: 36, Calories Burned: 0, Pulse: 115, Respiratory Rate: 11,1183568590406, Destination: -36, Exercise Recommendations: , 
+Number of steps: 32, Calories Burned: 0, Pulse: 142, Respiratory Rate: 15,2284356145786, Destination: -32, Exercise Recommendations: , 
+Number of steps: 36, Calories Burned: 0, Pulse: 115, Respiratory Rate: 10,4064584853623, Destination: -36, Exercise Recommendations: , 

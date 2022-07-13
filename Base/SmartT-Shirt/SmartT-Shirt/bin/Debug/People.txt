@@ -1,0 +1,4 @@
+Name: Petya, Age: 18, Phone model: Test 1
+Name: Anya, Age: 19, Phone model: Test 2
+Name: Steve, Age: 20, Phone model: Test 3
+Name: Kevin, Age: 11, Phone model: Test 4

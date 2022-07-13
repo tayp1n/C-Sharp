@@ -1,0 +1,2 @@
+Name: Steve, Age: 20, Phone model: Test 3
+Number of steps: 46 ,Calories Burned: 0 ,Pulse: 125 ,Respiratory Rate: 10,8839507937357 ,Destination: -46 ,Exercise Recommendations:  ,
